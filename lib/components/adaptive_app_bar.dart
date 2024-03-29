@@ -23,7 +23,7 @@ class AdaptiveAppBar extends StatelessWidget {
   final Border? border;
 
   const AdaptiveAppBar(
-      {Key? key,
+      {super.key,
       this.title,
       this.trailing,
       this.automaticallyImplyLeading = true,
@@ -33,8 +33,7 @@ class AdaptiveAppBar extends StatelessWidget {
       this.leading,
       this.bottom,
       this.elevation,
-      this.border = _kDefaultNavBarBorder})
-      : super(key: key);
+      this.border = _kDefaultNavBarBorder});
 
   CupertinoNavigationBar getCupertinoBar() {
     return cupertinoNavigationBar ??
