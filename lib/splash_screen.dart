@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:curalog/config/constants.dart';
 import 'package:curalog/main.dart';
+import 'package:curalog/screens/bottom_nav_home_page.dart';
 import 'package:curalog/screens/get_started_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   startTimer() {
     Timer(const Duration(seconds: 3), () async {
       // if (firebaseAuth.currentUser != null) {
-      Navigator.push(context, MaterialPageRoute(builder: (c) => MyHomePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (c) => HomePage()));
       // }
       // else {
       // Navigator.push(context,
@@ -43,15 +44,15 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           const Icon(
             Icons.medical_information,
-            color: Colors.white,
+            color: Colors.black,
             size: 110,
           ),
           const SizedBox(
             height: 16,
           ),
           Text(
-            'AMIGO',
-            style: GoogleFonts.francoisOne(fontSize: 55, color: Colors.white),
+            'Curalog',
+            style: GoogleFonts.francoisOne(fontSize: 55, color: Colors.black),
           ),
         ],
       ),
