@@ -45,7 +45,7 @@ class Onboarding extends StatelessWidget {
           size: screenWidth * 0.1,
         ),
         // itemCount: pages.length,
-        // duration: const Duration(m/illiseconds: 1500),
+        duration: const Duration(milliseconds: 1600),
         // opacityFactor: 2.0,
         // scaleFactor: 0.2,
         // verticalPosition: 0.7,
