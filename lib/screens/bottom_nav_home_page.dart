@@ -1,5 +1,6 @@
 import 'package:curalog/config/theme/theme.dart';
 import 'package:curalog/screens/home_page.dart';
+import 'package:curalog/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
@@ -27,7 +28,7 @@ class BottomNavBar extends StatelessWidget {
         const HomePage(),
         const Center(child: Text('Patient Page')),
         const Center(child: Text('Second Page')),
-        const Center(child: Text('Third Page')),
+        const Profile(),
       ];
     }
 
