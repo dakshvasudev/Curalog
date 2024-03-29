@@ -29,8 +29,8 @@ class AdaptivePageScaffold extends StatelessWidget {
     this.floatingActionButton,
     this.previousPageTitle = 'Back',
     required this.body,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
