@@ -25,6 +25,7 @@ class BottomNavBar extends StatelessWidget {
     List<Widget> buildScreens() {
       return [
         const HomePage(),
+        const Center(child: Text('Patient Page')),
         const Center(child: Text('Second Page')),
         const Center(child: Text('Third Page')),
       ];
@@ -35,6 +36,12 @@ class BottomNavBar extends StatelessWidget {
         PersistentBottomNavBarItem(
           icon: const Icon(Icons.home_outlined),
           title: ("Home"),
+          activeColorPrimary: colors(context).highlight.s500,
+          inactiveColorPrimary: colors(context).onSurface.s500,
+        ),
+        PersistentBottomNavBarItem(
+          icon: const Icon(Icons.people_outline),
+          title: ("Patients"),
           activeColorPrimary: colors(context).highlight.s500,
           inactiveColorPrimary: colors(context).onSurface.s500,
         ),
