@@ -2,10 +2,14 @@ import 'package:curalog/components/adaptive_page_scaffold.dart';
 import 'package:curalog/config/theme/placebo_colors.dart';
 import 'package:curalog/config/theme/placebo_typography.dart';
 import 'package:curalog/config/theme/theme.dart';
+import 'package:curalog/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
         textTheme:
             Theme.of(context).textTheme.copyWith(bodyMedium: textTheme.body),
       ),
-      home: const MyHomePage(),
+      home: const SplashScreen(),
     );
   }
 }
@@ -39,7 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return const AdaptivePageScaffold(
-        title: Text('Curalog'), body: BottomNavBar());
+        automaticallyImplyLeading: false,
+        title: Text('Curalog'),
+        body: BottomNavBar());
   }
 }
 
