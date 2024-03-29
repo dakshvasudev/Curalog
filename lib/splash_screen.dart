@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:curalog/config/constants.dart';
+import 'package:curalog/config/theme/theme.dart';
 import 'package:curalog/main.dart';
 import 'package:curalog/screens/bottom_nav_home_page.dart';
 import 'package:curalog/screens/get_started_screen.dart';
@@ -36,26 +37,28 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: colors(context).primary.s500,
         body: SizedBox(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(
-            Icons.medical_information,
-            color: Colors.black,
-            size: 110,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.medical_services,
+                color: Colors.white,
+                size: 110,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Text(
+                'Curalog',
+                style:
+                    GoogleFonts.francoisOne(fontSize: 55, color: Colors.white),
+              ),
+            ],
           ),
-          const SizedBox(
-            height: 16,
-          ),
-          Text(
-            'Curalog',
-            style: GoogleFonts.francoisOne(fontSize: 55, color: Colors.black),
-          ),
-        ],
-      ),
-    ));
+        ));
   }
 }
