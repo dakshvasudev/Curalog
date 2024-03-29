@@ -1,23 +1,24 @@
 import 'package:concentric_transition/page_view.dart';
+import 'package:curalog/config/theme/theme.dart';
 import 'package:curalog/screens/bottom_nav_home_page.dart';
 import 'package:flutter/material.dart';
 
 final pages = [
   const PageData(
     icon: Icons.medical_services,
-    title: "One place for\nall your\nhealth needs",
+    title: "One place for all your health needs",
     bgColor: Color(0xFF0043ff),
     textColor: Colors.white,
   ),
   const PageData(
     icon: Icons.miscellaneous_services_outlined,
-    title: "Choose from\na wide range\nof services",
+    title: "Choose from a wide range of services",
     textColor: Colors.white,
     bgColor: Color(0xFFFDBFDD),
   ),
   const PageData(
     icon: Icons.book_rounded,
-    title: "Get instant access\nto your\nmedical records",
+    title: "Get instant access to your medical records",
     bgColor: Color(0xFFFFFFFF),
   ),
 ];
@@ -120,14 +121,9 @@ class _Text extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       page.title ?? '',
-      style: TextStyle(
-        color: page.textColor,
-        fontWeight: FontWeight.w600,
-        fontFamily: 'Helvetica',
-        letterSpacing: 0.0,
-        fontSize: 18,
-        height: 1.2,
-      ).merge(style),
+      style: typography(context).largeTitle.copyWith(
+            color: page.textColor,
+          ),
       textAlign: TextAlign.center,
     );
   }
