@@ -37,25 +37,25 @@ class BottomNavBar extends StatelessWidget {
         PersistentBottomNavBarItem(
           icon: const Icon(Icons.home_outlined),
           title: ("Home"),
-          activeColorPrimary: colors(context).highlight.s500,
+          activeColorPrimary: colors(context).primary.s500,
           inactiveColorPrimary: colors(context).onSurface.s500,
         ),
         PersistentBottomNavBarItem(
           icon: const Icon(Icons.people_outline),
           title: ("Patients"),
-          activeColorPrimary: colors(context).highlight.s500,
+          activeColorPrimary: colors(context).primary.s500,
           inactiveColorPrimary: colors(context).onSurface.s500,
         ),
         PersistentBottomNavBarItem(
           icon: const Icon(Icons.search),
           title: ("Curalog's AI"),
-          activeColorPrimary: colors(context).highlight.s500,
+          activeColorPrimary: colors(context).primary.s500,
           inactiveColorPrimary: colors(context).onSurface.s500,
         ),
         PersistentBottomNavBarItem(
           icon: const Icon(Icons.person_outline),
           title: ("Profile"),
-          activeColorPrimary: colors(context).highlight.s500,
+          activeColorPrimary: colors(context).primary.s500,
           inactiveColorPrimary: colors(context).onSurface.s500,
         ),
       ];

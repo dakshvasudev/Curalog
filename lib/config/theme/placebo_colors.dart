@@ -197,16 +197,16 @@ class PlaceboColors extends ThemeExtension<PlaceboColors> {
         s900: Color(0xFF0F172A),
       ),
       primary: ColorShades(
-        s50: Color(0xFFEDF0FE),
-        s100: Color(0xFFDAE0FD),
-        s200: Color(0xFFB5C2FB),
-        s300: Color(0xFF90A3FA),
-        s400: Color(0xFF6B85F8),
+        s50: Color(0xFF0457F5),
+        s100: Color(0xFF0457F0),
+        s200: Color(0xFF0457E6),
+        s300: Color(0xFF0457DB),
+        s400: Color(0xFF0457D1),
         s500: primaryColor,
-        s600: Color(0xFF3852C5),
-        s700: Color(0xFF2A3D94),
-        s800: Color(0xFF1C2962),
-        s900: Color(0xFF0E1431),
+        s600: Color(0xFF0457B5),
+        s700: Color(0xFF0457A3),
+        s800: Color(0xFF04578C),
+        s900: Color(0xFF04577A),
       ),
       secondary: ColorShades(
         s50: Color(0xFFF8FAFC),
@@ -329,4 +329,4 @@ class PlaceboColors extends ThemeExtension<PlaceboColors> {
   // );
 }
 
-const primaryColor = Color(0xFF4666F6);
+const primaryColor = Color(0xFF0043ff);
