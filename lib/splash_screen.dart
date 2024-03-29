@@ -1,9 +1,5 @@
 import 'dart:async';
-import 'package:curalog/config/constants.dart';
 import 'package:curalog/config/theme/theme.dart';
-import 'package:curalog/main.dart';
-import 'package:curalog/screens/bottom_nav_home_page.dart';
-import 'package:curalog/screens/get_started_screen.dart';
 import 'package:curalog/screens/onboarding/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
