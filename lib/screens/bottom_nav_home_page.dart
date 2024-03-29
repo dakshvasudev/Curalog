@@ -1,22 +1,19 @@
-import 'package:curalog/components/adaptive_page_scaffold.dart';
 import 'package:curalog/config/theme/theme.dart';
+import 'package:curalog/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class ScreenWithBottomNav extends StatefulWidget {
+  const ScreenWithBottomNav({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<ScreenWithBottomNav> createState() => _ScreenWithBottomNavState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ScreenWithBottomNavState extends State<ScreenWithBottomNav> {
   @override
   Widget build(BuildContext context) {
-    return const AdaptivePageScaffold(
-        automaticallyImplyLeading: false,
-        title: Text('Curalog'),
-        body: BottomNavBar());
+    return const Scaffold(body: BottomNavBar());
   }
 }
 
@@ -27,33 +24,28 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> buildScreens() {
       return [
-        // TODO : Replace with the actual widgets for your pages
-        const Center(child: Text('Home Page')),
+        const HomePage(),
         const Center(child: Text('Second Page')),
         const Center(child: Text('Third Page')),
-
-        // HomeScreen(),
-        // SecondScreen(),
-        // ThirdScreen(),
       ];
     }
 
     List<PersistentBottomNavBarItem> navBarsItems() {
       return [
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.home),
+          icon: const Icon(Icons.home_outlined),
           title: ("Home"),
           activeColorPrimary: colors(context).highlight.s500,
           inactiveColorPrimary: colors(context).onSurface.s500,
         ),
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.settings),
-          title: ("Settings"),
+          icon: const Icon(Icons.search),
+          title: ("Curalog's AI"),
           activeColorPrimary: colors(context).highlight.s500,
           inactiveColorPrimary: colors(context).onSurface.s500,
         ),
         PersistentBottomNavBarItem(
-          icon: const Icon(Icons.person),
+          icon: const Icon(Icons.person_outline),
           title: ("Profile"),
           activeColorPrimary: colors(context).highlight.s500,
           inactiveColorPrimary: colors(context).onSurface.s500,
@@ -91,7 +83,7 @@ class BottomNavBar extends StatelessWidget {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.style3,
+      navBarStyle: NavBarStyle.style6,
     );
   }
 }
