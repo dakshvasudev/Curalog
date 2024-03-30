@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1088133777127",
+    "project_id": "curalog-3bc88",
+    "storage_bucket": "curalog-3bc88.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088133777127:android:a1d4faa5366226753e0442",
+        "android_client_info": {
+          "package_name": "com.example.curalog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAcN2AodAEEmCAUVSJKCoNW8b0EWBbiRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
