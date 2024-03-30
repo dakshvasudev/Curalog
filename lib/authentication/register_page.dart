@@ -4,7 +4,6 @@ import "package:curalog/components/square_tile.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 
-
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
   const RegisterPage({super.key, required this.onTap});
@@ -14,7 +13,6 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<RegisterPage> {
-
   //creating controllers(data) for text feilds
   final email = TextEditingController();
   final password = TextEditingController();
@@ -24,81 +22,69 @@ class _LoginPageState extends State<RegisterPage> {
   void signUserUp() async {
     //show loading circle
     showDialog(
-      context: context,
-      builder: (context){
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      }
-    );
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
 
     //trying to create user
-    try{
-
-      if(password.text == confirmPassword.text){
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email.text, password: password.text);
-      }
-      else{
-
+    try {
+      if (password.text == confirmPassword.text) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: email.text, password: password.text);
+      } else {
         //pop the loading circle
         Navigator.pop(context);
 
         // show error message password don't match
         showErrorMessage("Password don't match!");
       }
-      
-    } on FirebaseAuthException catch (e){
-
+    } on FirebaseAuthException catch (e) {
       //pop the loading circle
       Navigator.pop(context);
 
       //show error message
       showErrorMessage(e.code);
     }
-
-    
   }
 
   //error message to user
-  void showErrorMessage(String message){
+  void showErrorMessage(String message) {
     showDialog(
-      context: context,
-      builder: (context){
-        return AlertDialog(
-          backgroundColor: Colors.deepPurple,
-          title: Center(
-            child: Text(
-              message,
-              style: const TextStyle(
-                color: Colors.white,
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: Colors.deepPurple,
+            title: Center(
+              child: Text(
+                message,
+                style: const TextStyle(
+                  color: Colors.white,
+                ),
               ),
             ),
-          ),
-        );
-      }
-    );
+          );
+        });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(// i was not able to figure out how can i change background color of my AdaptivePageScaffold so i use scaffold
+    return Scaffold(
+      // i was not able to figure out how can i change background color of my AdaptivePageScaffold so i use scaffold
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
         child: Column(
           children: [
-        
             //TODO: replace it with app logo
             const Padding(
               padding: EdgeInsets.only(top: 50, bottom: 30),
               child: Center(
-                child: Icon(
-                  size: 100,
-                  Icons.healing
-                ),
+                child: Icon(size: 100, Icons.healing),
               ),
             ),
-            
-        
+
             Text(
               'Let\'s create an account for you!',
               style: TextStyle(
@@ -106,18 +92,22 @@ class _LoginPageState extends State<RegisterPage> {
                 fontSize: 16,
               ),
             ),
-            
-            const SizedBox(height: 20,),
-        
+
+            const SizedBox(
+              height: 20,
+            ),
+
             //email textfeild
             MyTextFeild(
               controller: email,
               hintText: 'Email',
               obscureText: false,
             ),
-            
-            const SizedBox(height: 10,),
-        
+
+            const SizedBox(
+              height: 10,
+            ),
+
             //password textfeild
             MyTextFeild(
               controller: password,
@@ -125,7 +115,9 @@ class _LoginPageState extends State<RegisterPage> {
               obscureText: true,
             ),
 
-            const SizedBox(height: 10,),
+            const SizedBox(
+              height: 10,
+            ),
 
             //confirm password textfeild
             MyTextFeild(
@@ -133,17 +125,18 @@ class _LoginPageState extends State<RegisterPage> {
               hintText: 'Confirm Password',
               obscureText: true,
             ),
-            
+
             const SizedBox(height: 25),
-        
-            // sign in button
-            MyButton(
-              onTap: signUserUp,
-              txt: 'Sign Up',
+
+            // sign up button
+            Button(
+              onPressed: signUserUp,
+              label: 'Sign Up',
+              variant: 'filled',
             ),
-        
+
             const SizedBox(height: 50),
-        
+
             // or continue with
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -171,25 +164,25 @@ class _LoginPageState extends State<RegisterPage> {
                 ],
               ),
             ),
-        
+
             const SizedBox(height: 35),
-        
+
             // google + apple sign in buttons
             const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // google button
                 SquareTile(imagePath: 'assets/google_logo.png'),
-        
+
                 SizedBox(width: 25),
-                  
+
                 // apple button
                 SquareTile(imagePath: 'assets/apple_logo.png')
               ],
             ),
-        
+
             const SizedBox(height: 35),
-        
+
             // not a member? register now
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -213,7 +206,7 @@ class _LoginPageState extends State<RegisterPage> {
             )
           ],
         ),
-      ),    
+      ),
     );
   }
 }

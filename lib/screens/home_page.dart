@@ -11,11 +11,12 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AdaptivePageScaffold(
       body: Center(
-        child: MyButton(
-          onTap: () async{
+        child: Button(
+          onPressed: () async {
             await FirebaseAuth.instance.signOut();
           },
-          txt: 'Sign Out'
+          label: 'Sign Out',
+          variant: 'filled',
         ),
       ),
     );
