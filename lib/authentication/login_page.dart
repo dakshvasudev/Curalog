@@ -1,7 +1,7 @@
-// import "dart:html";
-
+import "package:curalog/components/async_builder.dart";
 import "package:curalog/components/button.dart";
 import "package:curalog/components/auth_text_field.dart";
+import "package:curalog/components/global_snackbar.dart";
 import "package:curalog/components/square_tile.dart";
 import "package:curalog/config/theme/theme.dart";
 import "package:firebase_auth/firebase_auth.dart";
@@ -22,49 +22,14 @@ class _LoginPageState extends State<LoginPage> {
   final _email = TextEditingController();
   final _password = TextEditingController();
 
-  //sigin function
-  void signUserIn() async {
-    //show loading circle
-    showDialog(
-        context: context,
-        builder: (context) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        });
-
-    //trying to log in user
+  Future<void> _signUserIn() async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _email.text, password: _password.text);
-      //pop the loading circle
-      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
-      //pop the loading circle
-      Navigator.pop(context);
-
-      //show error message
-      showErrorMessage(e.code);
+      GlobalSnackBar.show(context,
+          message: e.message!, type: SnackBarType.error);
     }
-  }
-
-  //error message to user
-  void showErrorMessage(String message) {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            backgroundColor: Colors.deepPurple,
-            title: Center(
-              child: Text(
-                message,
-                style: const TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          );
-        });
   }
 
   @override
@@ -137,10 +102,14 @@ class _LoginPageState extends State<LoginPage> {
               // sign in button
               SizedBox(
                 width: MediaQuery.of(context).size.width,
-                child: Button(
-                  onPressed: signUserIn,
-                  label: 'Sign In',
-                  variant: 'filled',
+                child: AsyncBuilder(
+                  future: _signUserIn,
+                  builder: (onPressed, loading) => Button(
+                    onPressed: onPressed,
+                    loading: loading,
+                    label: 'Sign In',
+                    variant: 'filled',
+                  ),
                 ),
               ),
 

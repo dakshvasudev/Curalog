@@ -1,5 +1,7 @@
+import "package:curalog/components/async_builder.dart";
 import "package:curalog/components/button.dart";
 import "package:curalog/components/auth_text_field.dart";
+import "package:curalog/components/global_snackbar.dart";
 import "package:curalog/components/square_tile.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
@@ -13,60 +15,24 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<RegisterPage> {
-  //creating controllers(data) for text feilds
   final _email = TextEditingController();
   final _password = TextEditingController();
   final _confirmPassword = TextEditingController();
 
-  //sigup function
-  void signUserUp() async {
-    //show loading circle
-    showDialog(
-        context: context,
-        builder: (context) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        });
-
-    //trying to create user
+  Future<void> _signUserUp() async {
+    Future.delayed(const Duration(seconds: 2));
     try {
       if (_password.text == _confirmPassword.text) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: _email.text, password: _password.text);
       } else {
-        //pop the loading circle
-        Navigator.pop(context);
-
-        // show error message password don't match
-        showErrorMessage("Password don't match!");
+        GlobalSnackBar.show(context,
+            message: 'Passwords do not match!', type: SnackBarType.error);
       }
     } on FirebaseAuthException catch (e) {
-      //pop the loading circle
-      Navigator.pop(context);
-
-      //show error message
-      showErrorMessage(e.code);
+      GlobalSnackBar.show(context,
+          message: e.message!, type: SnackBarType.error);
     }
-  }
-
-  //error message to user
-  void showErrorMessage(String message) {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            backgroundColor: Colors.deepPurple,
-            title: Center(
-              child: Text(
-                message,
-                style: const TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          );
-        });
   }
 
   @override
@@ -133,10 +99,14 @@ class _LoginPageState extends State<RegisterPage> {
               // sign up button
               SizedBox(
                 width: MediaQuery.of(context).size.width,
-                child: Button(
-                  onPressed: signUserUp,
-                  label: 'Sign Up',
-                  variant: 'filled',
+                child: AsyncBuilder(
+                  future: _signUserUp,
+                  builder: (onPressed, loading) => Button(
+                    onPressed: onPressed,
+                    loading: loading,
+                    label: 'Sign Up',
+                    variant: 'filled',
+                  ),
                 ),
               ),
 
