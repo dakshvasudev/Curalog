@@ -42,20 +42,16 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               //TODO: replace it with app logo
-              const Padding(
-                padding: EdgeInsets.only(top: 60, bottom: 40),
-                child: Center(
-                  child: Icon(size: 100, Icons.healing),
+              Padding(
+                padding: const EdgeInsets.only(top: 120),
+                child: Icon(
+                  Icons.medical_services,
+                  color: colors(context).primary.s500,
+                  size: 110,
                 ),
               ),
 
-              Text(
-                'Welcome back!',
-                style: TextStyle(
-                  color: Colors.grey[700],
-                  fontSize: 16,
-                ),
-              ),
+              Text('Welcome back!', style: typography(context).strongSmallBody),
 
               const SizedBox(
                 height: 20,
@@ -91,7 +87,9 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       'Forgot Password?',
-                      style: TextStyle(color: colors(context).onSurface.s500),
+                      style: typography(context).subtitle2.copyWith(
+                            color: colors(context).onSurface.s500,
+                          ),
                     ),
                   ],
                 ),
