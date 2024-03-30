@@ -1,15 +1,20 @@
+import 'package:curalog/authentication/auth_page.dart';
+import 'package:curalog/authentication/firebase_options.dart';
+import 'package:curalog/authentication/login_page.dart';
 import 'package:curalog/components/adaptive_page_scaffold.dart';
 import 'package:curalog/config/theme/placebo_colors.dart';
 import 'package:curalog/config/theme/placebo_typography.dart';
 import 'package:curalog/config/theme/theme.dart';
+import 'package:curalog/screens/homepage.dart';
 import 'package:curalog/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  
   runApp(const MyApp());
 }
 
@@ -57,7 +62,7 @@ class BottomNavBar extends StatelessWidget {
     List<Widget> buildScreens() {
       return [
         // TODO : Replace with the actual widgets for your pages
-        const Center(child: Text('Home Page')),
+        const HomePage(),
         const Center(child: Text('Second Page')),
         const Center(child: Text('Third Page')),
 

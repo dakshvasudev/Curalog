@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:curalog/authentication/auth_page.dart';
+import 'package:curalog/authentication/login_page.dart';
 import 'package:curalog/config/constants.dart';
 import 'package:curalog/main.dart';
 import 'package:curalog/screens/get_started_screen.dart';
@@ -16,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   startTimer() {
     Timer(const Duration(seconds: 3), () async {
       // if (firebaseAuth.currentUser != null) {
-      Navigator.push(context, MaterialPageRoute(builder: (c) => MyHomePage()));
+      Navigator.push(context, MaterialPageRoute(builder: (c) => const AuthPage()));
       // }
       // else {
       // Navigator.push(context,
