@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
               //_email textfeild
               AuthTextField(
                 controller: _email,
-                hintText: '_Email',
+                hintText: 'Email',
                 obscureText: false,
               ),
 
