@@ -1,9 +1,5 @@
 import 'dart:async';
 import 'package:curalog/authentication/auth_page.dart';
-import 'package:curalog/authentication/login_page.dart';
-import 'package:curalog/config/constants.dart';
-import 'package:curalog/main.dart';
-import 'package:curalog/screens/get_started_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,7 +14,8 @@ class _SplashScreenState extends State<SplashScreen> {
   startTimer() {
     Timer(const Duration(seconds: 3), () async {
       // if (firebaseAuth.currentUser != null) {
-      Navigator.push(context, MaterialPageRoute(builder: (c) => const AuthPage()));
+      Navigator.push(
+          context, MaterialPageRoute(builder: (c) => const AuthPage()));
       // }
       // else {
       // Navigator.push(context,
@@ -37,26 +34,28 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color(0xFF0043ff),
         body: SizedBox(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Icon(
-            Icons.medical_information,
-            color: Colors.white,
-            size: 110,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.medical_services,
+                color: Colors.white,
+                size: 110,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              Text(
+                'Curalog',
+                style:
+                    GoogleFonts.francoisOne(fontSize: 55, color: Colors.white),
+              ),
+            ],
           ),
-          const SizedBox(
-            height: 16,
-          ),
-          Text(
-            'AMIGO',
-            style: GoogleFonts.francoisOne(fontSize: 55, color: Colors.white),
-          ),
-        ],
-      ),
-    ));
+        ));
   }
 }

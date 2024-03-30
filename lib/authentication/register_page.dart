@@ -75,136 +75,142 @@ class _LoginPageState extends State<RegisterPage> {
       // i was not able to figure out how can i change background color of my AdaptivePageScaffold so i use scaffold
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            //TODO: replace it with app logo
-            const Padding(
-              padding: EdgeInsets.only(top: 50, bottom: 30),
-              child: Center(
-                child: Icon(size: 100, Icons.healing),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              //TODO: replace it with app logo
+              const Padding(
+                padding: EdgeInsets.only(top: 50, bottom: 30),
+                child: Center(
+                  child: Icon(size: 100, Icons.healing),
+                ),
               ),
-            ),
 
-            Text(
-              'Let\'s create an account for you!',
-              style: TextStyle(
-                color: Colors.grey[700],
-                fontSize: 16,
+              Text(
+                'Let\'s create an account for you!',
+                style: TextStyle(
+                  color: Colors.grey[700],
+                  fontSize: 16,
+                ),
               ),
-            ),
 
-            const SizedBox(
-              height: 20,
-            ),
+              const SizedBox(
+                height: 20,
+              ),
 
-            //email textfeild
-            AuthTextField(
-              controller: _email,
-              hintText: 'Email',
-              obscureText: false,
-            ),
+              //email textfeild
+              AuthTextField(
+                controller: _email,
+                hintText: 'Email',
+                obscureText: false,
+              ),
 
-            const SizedBox(
-              height: 10,
-            ),
+              const SizedBox(
+                height: 10,
+              ),
 
-            //password textfeild
-            AuthTextField(
-              controller: _password,
-              hintText: 'Password',
-              obscureText: true,
-            ),
+              //password textfeild
+              AuthTextField(
+                controller: _password,
+                hintText: 'Password',
+                obscureText: true,
+              ),
 
-            const SizedBox(
-              height: 10,
-            ),
+              const SizedBox(
+                height: 10,
+              ),
 
-            //confirm password textfeild
-            AuthTextField(
-              controller: _confirmPassword,
-              hintText: 'Confirm Password',
-              obscureText: true,
-            ),
+              //confirm password textfeild
+              AuthTextField(
+                controller: _confirmPassword,
+                hintText: 'Confirm Password',
+                obscureText: true,
+              ),
 
-            const SizedBox(height: 25),
+              const SizedBox(height: 25),
 
-            // sign up button
-            Button(
-              onPressed: signUserUp,
-              label: 'Sign Up',
-              variant: 'filled',
-            ),
+              // sign up button
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Button(
+                  onPressed: signUserUp,
+                  label: 'Sign Up',
+                  variant: 'filled',
+                ),
+              ),
 
-            const SizedBox(height: 50),
+              const SizedBox(height: 50),
 
-            // or continue with
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Row(
+              // or continue with
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: Colors.grey[400],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Text(
+                        'Or continue with',
+                        style: TextStyle(color: Colors.grey[700]),
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        thickness: 0.5,
+                        color: Colors.grey[400],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 36),
+
+              // google + apple sign in buttons
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Divider(
-                      thickness: 0.5,
-                      color: Colors.grey[400],
-                    ),
+                  // google button
+                  SquareTile(imagePath: 'assets/icons/google_logo.png'),
+
+                  SizedBox(width: 25),
+
+                  // apple button
+                  SquareTile(imagePath: 'assets/icons/apple_logo.png')
+                ],
+              ),
+
+              const SizedBox(height: 36),
+
+              // not a member? register now
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Alredy have an account?',
+                    style: TextStyle(color: Colors.grey[700]),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Text(
-                      'Or continue with',
-                      style: TextStyle(color: Colors.grey[700]),
-                    ),
-                  ),
-                  Expanded(
-                    child: Divider(
-                      thickness: 0.5,
-                      color: Colors.grey[400],
+                  const SizedBox(width: 4),
+                  GestureDetector(
+                    onTap: widget.onTap,
+                    child: const Text(
+                      'Login now',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],
-              ),
-            ),
-
-            const SizedBox(height: 36),
-
-            // google + apple sign in buttons
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // google button
-                SquareTile(imagePath: 'assets/icons/google_logo.png'),
-
-                SizedBox(width: 25),
-
-                // apple button
-                SquareTile(imagePath: 'assets/icons/apple_logo.png')
-              ],
-            ),
-
-            const SizedBox(height: 36),
-
-            // not a member? register now
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Alredy have an account?',
-                  style: TextStyle(color: Colors.grey[700]),
-                ),
-                const SizedBox(width: 4),
-                GestureDetector(
-                  onTap: widget.onTap,
-                  child: const Text(
-                    'Login now',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ],
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -1,5 +1,5 @@
 import "package:curalog/authentication/login_or_register.dart";
-import "package:curalog/main.dart";
+import "package:curalog/screens/onboarding/onboarding.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 
@@ -13,7 +13,7 @@ class AuthPage extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return const MyHomePage();
+              return const Onboarding();
             } else {
               return const LoginOrRegister();
             }
