@@ -1,5 +1,5 @@
 import "package:curalog/components/button.dart";
-import "package:curalog/components/my_textfeild.dart";
+import "package:curalog/components/auth_text_field.dart";
 import "package:curalog/components/square_tile.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
@@ -98,7 +98,7 @@ class _LoginPageState extends State<RegisterPage> {
             ),
 
             //email textfeild
-            MyTextFeild(
+            AuthTextField(
               controller: email,
               hintText: 'Email',
               obscureText: false,
@@ -109,7 +109,7 @@ class _LoginPageState extends State<RegisterPage> {
             ),
 
             //password textfeild
-            MyTextFeild(
+            AuthTextField(
               controller: password,
               hintText: 'Password',
               obscureText: true,
@@ -120,7 +120,7 @@ class _LoginPageState extends State<RegisterPage> {
             ),
 
             //confirm password textfeild
-            MyTextFeild(
+            AuthTextField(
               controller: confirmPassword,
               hintText: 'Confirm Password',
               obscureText: true,
@@ -172,12 +172,12 @@ class _LoginPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // google button
-                SquareTile(imagePath: 'assets/google_logo.png'),
+                SquareTile(imagePath: 'assets/icons/google_logo.png'),
 
                 SizedBox(width: 25),
 
                 // apple button
-                SquareTile(imagePath: 'assets/apple_logo.png')
+                SquareTile(imagePath: 'assets/icons/apple_logo.png')
               ],
             ),
 

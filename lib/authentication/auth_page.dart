@@ -1,9 +1,7 @@
 import "package:curalog/authentication/login_or_register.dart";
-import "package:curalog/authentication/login_page.dart";
 import "package:curalog/main.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
-
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -12,16 +10,14 @@ class AuthPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot){
-          if(snapshot.hasData){
-            return const MyHomePage();
-          }
-          else{
-            return const LoginOrRegister();
-          }
-        }
-      ),
+          stream: FirebaseAuth.instance.authStateChanges(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return const MyHomePage();
+            } else {
+              return const LoginOrRegister();
+            }
+          }),
     );
   }
 }

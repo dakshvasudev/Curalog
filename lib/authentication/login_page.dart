@@ -1,8 +1,7 @@
 // import "dart:html";
 
-import "package:curalog/components/adaptive_page_scaffold.dart";
 import "package:curalog/components/button.dart";
-import "package:curalog/components/my_textfeild.dart";
+import "package:curalog/components/auth_text_field.dart";
 import "package:curalog/components/square_tile.dart";
 import "package:curalog/config/theme/theme.dart";
 import "package:firebase_auth/firebase_auth.dart";
@@ -71,7 +70,6 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // i was not able to figure out how can i change background color of my AdaptivePageScaffold so i use scaffold
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
         child: Padding(
@@ -99,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               //email textfeild
-              MyTextFeild(
+              AuthTextField(
                 controller: email,
                 hintText: 'Email',
                 obscureText: false,
@@ -110,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               //password textfeild
-              MyTextFeild(
+              AuthTextField(
                 controller: password,
                 hintText: 'Password',
                 obscureText: true,
@@ -122,13 +120,13 @@ class _LoginPageState extends State<LoginPage> {
 
               //forgot password
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(
                       'Forgot Password?',
-                      style: TextStyle(color: Colors.grey[600]),
+                      style: TextStyle(color: colors(context).onSurface.s500),
                     ),
                   ],
                 ),
@@ -183,12 +181,12 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // google button
-                  SquareTile(imagePath: 'assets/google_logo.png'),
+                  SquareTile(imagePath: 'assets/icons/google_logo.png'),
 
                   SizedBox(width: 25),
 
                   // apple button
-                  SquareTile(imagePath: 'assets/apple_logo.png')
+                  SquareTile(imagePath: 'assets/icons/apple_logo.png')
                 ],
               ),
 
