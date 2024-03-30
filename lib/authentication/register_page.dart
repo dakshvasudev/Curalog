@@ -14,9 +14,9 @@ class RegisterPage extends StatefulWidget {
 
 class _LoginPageState extends State<RegisterPage> {
   //creating controllers(data) for text feilds
-  final email = TextEditingController();
-  final password = TextEditingController();
-  final confirmPassword = TextEditingController();
+  final _email = TextEditingController();
+  final _password = TextEditingController();
+  final _confirmPassword = TextEditingController();
 
   //sigup function
   void signUserUp() async {
@@ -31,9 +31,9 @@ class _LoginPageState extends State<RegisterPage> {
 
     //trying to create user
     try {
-      if (password.text == confirmPassword.text) {
+      if (_password.text == _confirmPassword.text) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
-            email: email.text, password: password.text);
+            email: _email.text, password: _password.text);
       } else {
         //pop the loading circle
         Navigator.pop(context);
@@ -99,7 +99,7 @@ class _LoginPageState extends State<RegisterPage> {
 
             //email textfeild
             AuthTextField(
-              controller: email,
+              controller: _email,
               hintText: 'Email',
               obscureText: false,
             ),
@@ -110,7 +110,7 @@ class _LoginPageState extends State<RegisterPage> {
 
             //password textfeild
             AuthTextField(
-              controller: password,
+              controller: _password,
               hintText: 'Password',
               obscureText: true,
             ),
@@ -121,7 +121,7 @@ class _LoginPageState extends State<RegisterPage> {
 
             //confirm password textfeild
             AuthTextField(
-              controller: confirmPassword,
+              controller: _confirmPassword,
               hintText: 'Confirm Password',
               obscureText: true,
             ),
@@ -139,7 +139,7 @@ class _LoginPageState extends State<RegisterPage> {
 
             // or continue with
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Row(
                 children: [
                   Expanded(
@@ -165,7 +165,7 @@ class _LoginPageState extends State<RegisterPage> {
               ),
             ),
 
-            const SizedBox(height: 35),
+            const SizedBox(height: 36),
 
             // google + apple sign in buttons
             const Row(
@@ -181,7 +181,7 @@ class _LoginPageState extends State<RegisterPage> {
               ],
             ),
 
-            const SizedBox(height: 35),
+            const SizedBox(height: 36),
 
             // not a member? register now
             Row(
