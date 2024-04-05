@@ -3,10 +3,11 @@ import "package:curalog/components/button.dart";
 import "package:curalog/components/auth_text_field.dart";
 import "package:curalog/components/global_snackbar.dart";
 import "package:curalog/components/square_tile.dart";
+import "package:curalog/config/theme/theme.dart";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 
-class RegisterPage extends StatefulWidget {
+class RegisterPage extends StatefulWidget{
   final Function()? onTap;
   const RegisterPage({super.key, required this.onTap});
 
@@ -45,21 +46,17 @@ class _LoginPageState extends State<RegisterPage> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              //TODO: replace it with app logo
-              const Padding(
-                padding: EdgeInsets.only(top: 50, bottom: 30),
-                child: Center(
-                  child: Icon(size: 100, Icons.healing),
+              
+              Padding(
+                padding: const EdgeInsets.only(top: 120),
+                child: Icon(
+                  Icons.medical_services,
+                  color: colors(context).primary.s500,
+                  size: 110,
                 ),
               ),
 
-              Text(
-                'Let\'s create an account for you!',
-                style: TextStyle(
-                  color: Colors.grey[700],
-                  fontSize: 16,
-                ),
-              ),
+              Text('Let\'s create an account for you!', style: typography(context).strongSmallBody),
 
               const SizedBox(
                 height: 20,
@@ -156,7 +153,7 @@ class _LoginPageState extends State<RegisterPage> {
                 ],
               ),
 
-              const SizedBox(height: 36),
+              const SizedBox(height: 30),
 
               // not a member? register now
               Row(

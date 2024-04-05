@@ -5,9 +5,8 @@ import "package:curalog/components/global_snackbar.dart";
 import "package:curalog/components/square_tile.dart";
 import "package:curalog/config/theme/theme.dart";
 import "package:firebase_auth/firebase_auth.dart";
-import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
-import "package:flutter/widgets.dart";
+
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -41,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              //TODO: replace it with app logo
+              
               Padding(
                 padding: const EdgeInsets.only(top: 120),
                 child: Icon(
@@ -50,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                   size: 110,
                 ),
               ),
-
+              
               Text('Welcome back!', style: typography(context).strongSmallBody),
 
               const SizedBox(

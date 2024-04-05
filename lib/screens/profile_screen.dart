@@ -16,7 +16,7 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   Future<void> _signOut() async {
     try {
-      await FirebaseAuth.instance.signOut();
+      await FirebaseAuth.instance.signOut();  
     } catch (e) {
       GlobalSnackBar.show(context,
           message: e.toString(), type: SnackBarType.error);
@@ -31,6 +31,8 @@ class _ProfileState extends State<Profile> {
         'Profile',
         style: typography(context).largeBody,
       ),
+
+      //sign out
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
         child: Padding(
